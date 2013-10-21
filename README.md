@@ -25,11 +25,13 @@ In your project's Gruntfile, add a section named `http_upload` to the data objec
 ```js
 grunt.initConfig({
   http_upload: {
-    options: {
-      // Task-specific options go here.
-    },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      options: {
+        url: 'http://<%= config.serverUrl %>/templates/?token=<%= config.apiKey %>',
+        method: 'PUT'
+      },
+      src: '<%= yeoman.dist %>/dist.zip',
+      dest: 'myField'
     },
   },
 })
@@ -37,15 +39,15 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.url
 Type: `String`
-Default value: `',  '`
+Default value: `''`
 
 A string value that is used to do something with whatever.
 
-#### options.punctuation
+#### options.method
 Type: `String`
-Default value: `'.'`
+Default value: `'POST'`
 
 A string value that is used to do something else with whatever else.
 
@@ -86,4 +88,4 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+0.1.0 - 2013-10-22: Initial release. Supports only multipart file uploads.

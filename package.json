@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "homepage": "https://github.com/julienma/grunt-http-upload",
   "author": {
-    "name": "Julien M"
+    "name": "Julien M",
+    "url": "http://timetravelkit.com"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,16 @@
   "bugs": {
     "url": "https://github.com/julienma/grunt-http-upload/issues"
   },
+  "keywords": [
+     "gruntplugin",
+     "grunt",
+     "http",
+     "upload",
+     "post",
+     "api",
+     "restler",
+     "curl"
+   ],
   "licenses": [
     {
       "type": "MIT",
