@@ -2,17 +2,17 @@
   "name": "grunt-http-upload",
   "description": "Upload files through POST/PUT HTTP request",
   "version": "0.1.0",
-  "homepage": "https://github.com/julienma/grunt-http-upload",
+  "homepage": "https://github.com/DiscoverGrunt/grunt-http-upload",
   "author": {
     "name": "Julien M",
     "url": "http://timetravelkit.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/julienma/grunt-http-upload.git"
+    "url": "https://github.com/DiscoverGrunt/grunt-http-upload.git"
   },
   "bugs": {
-    "url": "https://github.com/julienma/grunt-http-upload/issues"
+    "url": "https://github.com/DiscoverGrunt/grunt-http-upload/issues"
   },
   "keywords": [
      "gruntplugin",
@@ -27,7 +27,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/julienma/grunt-http-upload/blob/master/LICENSE-MIT"
+      "url": "https://github.com/DiscoverGrunt/grunt-http-upload/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",

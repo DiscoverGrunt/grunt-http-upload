@@ -1,6 +1,6 @@
 /*
  * grunt-http-upload
- * https://github.com/julienma/grunt-http-upload
+ * https://github.com/DiscoverGrunt/grunt-http-upload
  *
  * Copyright (c) 2013 Julien M
  * Licensed under the MIT license.
