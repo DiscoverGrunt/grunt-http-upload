@@ -1,6 +1,12 @@
 # grunt-http-upload
 
-> Upload files through POST/PUT HTTP request
+> Upload files through POST/PUT HTTP request, using [Restler](https://github.com/danwrong/restler), the only Node library known to work flawlessly with multipart file uploads.
+So now you can push a zip `/dist` through your CMS' API!
+
+## Need Help?
+If you wonder how to install or use this plugin, or even Grunt itself, you should check out our ["Discover Grunt" book](http://www.discovergrunt.com).
+
+It starts at the very beginning (including how to properly set-up your command-line on Windows and Mac OS X), and goes beyond the official [Getting Started](http://gruntjs.com/getting-started) guide.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -24,16 +30,18 @@ In your project's Gruntfile, add a section named `http_upload` to the data objec
 
 ```js
 grunt.initConfig({
+
   http_upload: {
     your_target: {
       options: {
-        url: 'http://<%= config.serverUrl %>/templates/?token=<%= config.apiKey %>',
+        url: 'http://example.com/template/123/?token=<%= config.apiKey %>',
         method: 'PUT'
       },
       src: '<%= yeoman.dist %>/dist.zip',
       dest: 'myField'
     },
   },
+
 })
 ```
 
@@ -43,49 +51,58 @@ grunt.initConfig({
 Type: `String`
 Default value: `''`
 
-A string value that is used to do something with whatever.
+This is the full URL to which you can upload a file.
+You can append some variables, like an API token.
 
 #### options.method
 Type: `String`
 Default value: `'POST'`
 
-A string value that is used to do something else with whatever else.
+The HTTP method to use to upload the file.
+Look in the API documentation you want to use, this is usually POST or PUT.
+
+#### src
+Type: `String`
+Default value: `''`
+
+The local path of the file you wish to upload, using the current working directory as a reference.
+You can upload only 1 file at a time.
+
+#### dest
+Type: `String`
+Default value: `''`
+
+The field name of the file to be uploaded, on the API side.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default POST method is used to upload the local picture `./images/status.jpg` to Basecamp. Their API can be accessed through the URL `https://basecamp.com` (using Basic Auth). When creating an attachment in Basecamp, the "dest" field name is not important, so you can set it to anything (`img` in this case).
+`method` is set to "POST", but could have been omitted as this is the default value.
 
 ```js
 grunt.initConfig({
   http_upload: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  http_upload: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    basecamp: {
+      options: {
+        url: 'https://user:pwd@basecamp.com/99999999/api/v1/attachments.json',
+        method: 'POST'
+      },
+      src: 'images/status.jpg',
+      dest: 'img'
+    }
+  }
 })
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
+You should fork this repo, and issue a Pull Request with your proposed changes.
+
+### Roadmap ideas
+For now the upload is limited to 1 file per target. This could change if I find a scenario needing it.
+Also, it is not possible to add additional payload (no custom data). A lot of API require the Authentication to be sent through the Headers, so this might be one of the next improvement.
+
 ## Release History
-0.1.0 - 2013-10-22: Initial release. Supports only multipart file uploads.
+0.1.0 - 2013-10-30: Initial release. Supports only 1 multipart file upload.
