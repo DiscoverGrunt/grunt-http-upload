@@ -1,12 +1,22 @@
 {
   "name": "grunt-http-upload",
-  "description": "Upload files through POST/PUT HTTP request",
+  "description": "Grunt plugin to upload files through POST/PUT HTTP request",
   "version": "0.1.0",
   "homepage": "https://github.com/DiscoverGrunt/grunt-http-upload",
   "author": {
     "name": "Julien M",
-    "url": "http://timetravelkit.com"
+    "url": "http://discovergrunt.com"
   },
+  "contributors": [
+    {
+      "name": "Julien Marchand",
+      "url": "http://julienma.com"
+    },
+    {
+      "name": "Bastien Petit",
+      "url": "http://bastienpetit.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/DiscoverGrunt/grunt-http-upload.git"
@@ -14,16 +24,6 @@
   "bugs": {
     "url": "https://github.com/DiscoverGrunt/grunt-http-upload/issues"
   },
-  "keywords": [
-     "gruntplugin",
-     "grunt",
-     "http",
-     "upload",
-     "post",
-     "api",
-     "restler",
-     "curl"
-   ],
   "licenses": [
     {
       "type": "MIT",
@@ -47,7 +47,14 @@
     "grunt": "~0.4.1"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "grunt",
+    "http",
+    "upload",
+    "post",
+    "api",
+    "restler",
+    "curl"
   ],
   "dependencies": {
     "restler": "~2.0.1"
