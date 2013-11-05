@@ -1,4 +1,4 @@
-# grunt-http-upload
+# grunt-http-upload [![NPM version](https://badge.fury.io/js/grunt-http-upload.png)](http://badge.fury.io/js/grunt-http-upload)
 
 > Upload files through POST/PUT HTTP request, using [Restler](https://github.com/danwrong/restler), the only Node library known to work flawlessly with multipart file uploads.
 So now you can push a zip `/dist` through your CMS' API!
