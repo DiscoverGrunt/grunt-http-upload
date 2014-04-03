@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           var fileSize = stats.size;
           grunt.log.writeln('Uploading "' + filepath + '" as "' + field + '"');
           // build request data (because of dynamic key in data object)
-          var reqData = {};
+          var reqData = options.data || {};
           reqData[field] = rest.file(filepath, null, fileSize, null, null);
           // HTTP request
           rest.request(options.url, {

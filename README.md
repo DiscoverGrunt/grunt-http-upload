@@ -35,7 +35,10 @@ grunt.initConfig({
     your_target: {
       options: {
         url: 'http://example.com/template/123/?token=<%= config.apiKey %>',
-        method: 'PUT'
+        method: 'PUT',
+        data: {
+          someKey: 'some value'
+        }
       },
       src: '<%= yeoman.dist %>/dist.zip',
       dest: 'myField'
@@ -60,6 +63,12 @@ Default value: `'POST'`
 
 The HTTP method to use to upload the file.
 Look in the API documentation you want to use, this is usually POST or PUT.
+
+#### options.data
+Type: `Object`
+DefaultValue: `{}`
+
+Any form data fields to be sent in addition to the file upload
 
 #### src
 Type: `String`
