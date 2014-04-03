@@ -114,4 +114,5 @@ For now the upload is limited to 1 file per target. This could change if I find 
 Also, it is not possible to add additional payload (no custom data). A lot of API require the Authentication to be sent through the Headers, so this might be one of the next improvement.
 
 ## Release History
+0.1.1 - 2014-04-03: Added a data option to pass other form data in addition to the uploaded file (PR from [mcondon](http://github.com/mcondon)).
 0.1.0 - 2013-10-30: Initial release. Supports only 1 multipart file upload.
