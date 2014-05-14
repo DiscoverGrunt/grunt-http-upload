@@ -69,7 +69,7 @@ Look in the API documentation you want to use, this is usually POST or PUT.
 
 #### options.data
 Type: `Object`
-DefaultValue: `{}`
+Default value: `{}`
 
 Any form data fields to be sent in addition to the file upload
 
@@ -123,6 +123,7 @@ For now the upload is limited to 1 file per target. This could change if I find 
 Also, it is not possible to add additional payload (no custom data).
 
 ## Release History
+- 0.1.3 - 2014-05-14: Added a headers option to send HTTP headers.
 - 0.1.2 - 2014-04-03: Updated Restler to latest (3.2.0) version.
 - 0.1.1 - 2014-04-03: Added a data option to pass other form data in addition to the uploaded file (PR from [mcondon](http://github.com/mcondon)).
 - 0.1.0 - 2013-10-30: Initial release. Supports only 1 multipart file upload.
