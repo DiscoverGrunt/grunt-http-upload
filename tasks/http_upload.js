@@ -21,6 +21,7 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       method: 'POST',
+      headers: {},
       url:    ''
     });
 
@@ -52,6 +53,7 @@ module.exports = function(grunt) {
           // HTTP request
           rest.request(options.url, {
             method: options.method,
+            headers: options.headers,
             multipart: true,
             data: reqData
           }).on('complete', function(data, response) {

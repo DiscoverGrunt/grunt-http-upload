@@ -36,6 +36,9 @@ grunt.initConfig({
       options: {
         url: 'http://example.com/template/123/?token=<%= config.apiKey %>',
         method: 'PUT',
+        headers: {
+          'Authorization': 'Token <%= your_token_here %>'
+        },
         data: {
           someKey: 'some value'
         }
@@ -69,6 +72,12 @@ Type: `Object`
 DefaultValue: `{}`
 
 Any form data fields to be sent in addition to the file upload
+
+#### options.headers
+Type: `Object`
+DefaultValue: `{}`
+
+Headers to send along with your HTTP request. For example, a lot of API require the Authentication to be sent through the Headers.
 
 #### src
 Type: `String`
@@ -111,7 +120,7 @@ You should fork this repo, and issue a Pull Request with your proposed changes.
 
 ### Roadmap ideas
 For now the upload is limited to 1 file per target. This could change if I find a scenario needing it.
-Also, it is not possible to add additional payload (no custom data). A lot of API require the Authentication to be sent through the Headers, so this might be one of the next improvement.
+Also, it is not possible to add additional payload (no custom data).
 
 ## Release History
 - 0.1.2 - 2014-04-03: Updated Restler to latest (3.2.0) version.
