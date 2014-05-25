@@ -123,7 +123,7 @@ For now the upload is limited to 1 file per target. This could change if I find 
 Also, it is not possible to add additional payload (no custom data).
 
 ## Release History
-- 0.1.4 - 2014-05-25: Upload success on all 2XX codes (PR from [Shane Smith](http://github.com/shanesmith)).
+- 0.1.4/0.1.5 - 2014-05-25: Upload success on all 2XX codes (PR from [Shane Smith](http://github.com/shanesmith)) + Fix.
 - 0.1.3 - 2014-05-14: Added a headers option to send HTTP headers (PR from [Andrey Okonetchnikov](http://github.com/okonet)).
 - 0.1.2 - 2014-04-03: Updated Restler to latest (3.2.0) version.
 - 0.1.1 - 2014-04-03: Added a data option to pass other form data in addition to the uploaded file (PR from [Micah Condon](http://github.com/mcondon)).
