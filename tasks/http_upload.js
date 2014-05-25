@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             multipart: true,
             data: reqData
           }).on('complete', function(data, response) {
-            if (response.statusCode === 200) {
+            if (response.statusCode => 200 && response.statusCode < 300) {
               grunt.log.ok('Upload successful of "' + filepath + '" as "' + field + '" - ' + options.method + ' @ ' + options.url);
             } else {
               grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
