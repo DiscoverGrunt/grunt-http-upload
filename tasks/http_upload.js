@@ -52,6 +52,7 @@ module.exports = function(grunt) {
           reqData[field] = rest.file(filepath, null, fileSize, null, null);
           // HTTP request
           rest.request(options.url, {
+            strictSSL: false,
             method: options.method,
             headers: options.headers,
             multipart: true,
