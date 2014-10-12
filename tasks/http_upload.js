@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
+      rejectUnauthorized: true,
       method: 'POST',
       headers: {},
       url:    ''
@@ -52,15 +53,20 @@ module.exports = function(grunt) {
           reqData[field] = rest.file(filepath, null, fileSize, null, null);
           // HTTP request
           rest.request(options.url, {
+            rejectUnauthorized: options.rejectUnauthorized,
             method: options.method,
             headers: options.headers,
             multipart: true,
             data: reqData
           }).on('complete', function(data, response) {
-            if (response.statusCode >= 200 && response.statusCode < 300) {
+            if (response !== null && response.statusCode >= 200 && response.statusCode < 300) {
               grunt.log.ok('Upload successful of "' + filepath + '" as "' + field + '" - ' + options.method + ' @ ' + options.url);
             } else {
-              grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
+              if (response !== null) {
+                grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
+              } else {
+                grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: null) - ' + options.method + ' @ ' + options.url);                
+              }  
             }
             // callback once upload is done
             done(data);
