@@ -36,6 +36,7 @@ grunt.initConfig({
       options: {
         url: 'http://example.com/template/123/?token=<%= config.apiKey %>',
         method: 'PUT',
+        rejectUnauthorized: false,
         headers: {
           'Authorization': 'Token <%= your_token_here %>'
         },
@@ -66,6 +67,13 @@ Default value: `'POST'`
 
 The HTTP method to use to upload the file.
 Look in the API documentation you want to use, this is usually POST or PUT.
+
+#### options.rejectUnauthorized
+Type: `Boolean`
+Default value: `true`
+
+Verify the server certificate and will fail if it is not valid.
+Set to false if you need to bypass the SSL verification.
 
 #### options.data
 Type: `Object`
@@ -123,6 +131,7 @@ For now the upload is limited to 1 file per target. This could change if I find 
 Also, it is not possible to add additional payload (no custom data).
 
 ## Release History
+- 0.1.6 - 2014-10-13: Add rejectUnauthorized option to bypass SSL certificate verification (PR from [GODDET](https://github.com/GODDET)).
 - 0.1.4/0.1.5 - 2014-05-25: Upload success on all 2XX codes (PR from [Shane Smith](http://github.com/shanesmith)) + Fix.
 - 0.1.3 - 2014-05-14: Added a headers option to send HTTP headers (PR from [Andrey Okonetchnikov](http://github.com/okonet)).
 - 0.1.2 - 2014-04-03: Updated Restler to latest (3.2.0) version.
