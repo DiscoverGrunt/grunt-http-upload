@@ -61,12 +61,10 @@ module.exports = function(grunt) {
           }).on('complete', function(data, response) {
             if (response !== null && response.statusCode >= 200 && response.statusCode < 300) {
               grunt.log.ok('Upload successful of "' + filepath + '" as "' + field + '" - ' + options.method + ' @ ' + options.url);
-            } else {
-              if (response !== null) {
+            } else if (response !== null) {
                 grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
-              } else {
+            } else {
                 grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: null) - ' + options.method + ' @ ' + options.url);                
-              }  
             }
             // callback once upload is done
             done(data);
