@@ -114,6 +114,7 @@ The field name of the file to be uploaded, on the API side.
 #### Default Options
 In this example, the default POST method is used to upload the local picture `./images/status.jpg` to Basecamp. Their API can be accessed through the URL `https://basecamp.com` (using Basic Auth). When creating an attachment in Basecamp, the "dest" field name is not important, so you can set it to anything (`img` in this case).
 `method` is set to "POST", but could have been omitted as this is the default value.
+The `onComplete` method is then used to display API's response.
 
 ```js
 grunt.initConfig({
@@ -121,7 +122,10 @@ grunt.initConfig({
     basecamp: {
       options: {
         url: 'https://user:pwd@basecamp.com/99999999/api/v1/attachments.json',
-        method: 'POST'
+        method: 'POST',
+        onComplete: function(data) {
+            console.log('Response: ' + data);
+        }
       },
       src: 'images/status.jpg',
       dest: 'img'
@@ -137,9 +141,9 @@ You should fork this repo, and issue a Pull Request with your proposed changes.
 
 ### Roadmap ideas
 For now the upload is limited to 1 file per target. This could change if I find a scenario needing it.
-Also, it is not possible to add additional payload (no custom data).
 
 ## Release History
+- 0.1.7 - 2014-12-30: Add onComplete as an optional callback function used to process server's response. (PR from [Remigiusz Jackowski](https://github.com/remiq)).
 - 0.1.6 - 2014-10-13: Add rejectUnauthorized option to bypass SSL certificate verification (PR from [GODDET](https://github.com/GODDET)).
 - 0.1.4/0.1.5 - 2014-05-25: Upload success on all 2XX codes (PR from [Shane Smith](http://github.com/shanesmith)) + Fix.
 - 0.1.3 - 2014-05-14: Added a headers option to send HTTP headers (PR from [Andrey Okonetchnikov](http://github.com/okonet)).

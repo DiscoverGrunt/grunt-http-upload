@@ -1,7 +1,7 @@
 {
   "name": "grunt-http-upload",
   "description": "Grunt plugin to upload files through POST/PUT HTTP request",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://github.com/DiscoverGrunt/grunt-http-upload",
   "author": {
     "name": "Julien M",
