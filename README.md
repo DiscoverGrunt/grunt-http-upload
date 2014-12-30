@@ -42,6 +42,9 @@ grunt.initConfig({
         },
         data: {
           someKey: 'some value'
+        },
+        onComplete: function(data) {
+            console.log('Response: ' + data);
         }
       },
       src: '<%= yeoman.dist %>/dist.zip',
@@ -86,6 +89,12 @@ Type: `Object`
 DefaultValue: `{}`
 
 Headers to send along with your HTTP request. For example, a lot of API require the Authentication to be sent through the Headers.
+
+#### options.onComplete
+Type: `Function`
+DefaultValue: `function(data) {}`
+
+Callback used to process server's response. For example, when server returns id of uploaded file you need to process afterwards.
 
 #### src
 Type: `String`

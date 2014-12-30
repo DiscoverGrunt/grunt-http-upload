@@ -23,7 +23,8 @@ module.exports = function(grunt) {
       rejectUnauthorized: true,
       method: 'POST',
       headers: {},
-      url:    ''
+      url:    '',
+      onComplete: function(data) {}
     });
 
     grunt.verbose.writeflags(options, 'Options');
@@ -61,6 +62,7 @@ module.exports = function(grunt) {
           }).on('complete', function(data, response) {
             if (response !== null && response.statusCode >= 200 && response.statusCode < 300) {
               grunt.log.ok('Upload successful of "' + filepath + '" as "' + field + '" - ' + options.method + ' @ ' + options.url);
+              options.onComplete(data);
             } else if (response !== null) {
                 grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
             } else {
