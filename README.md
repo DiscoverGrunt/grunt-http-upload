@@ -143,6 +143,7 @@ You should fork this repo, and issue a Pull Request with your proposed changes.
 For now the upload is limited to 1 file per target. This could change if I find a scenario needing it.
 
 ## Release History
+- 0.1.8 - 2015-01-12: Happy New Year! Now gives more information on unknown error (like when there's no connectivity), rather than `null` (PR from [Marcus](https://github.com/marcusds)).
 - 0.1.7 - 2014-12-30: Add onComplete as an optional callback function used to process server's response (PR from [Remigiusz Jackowski](https://github.com/remiq)).
 - 0.1.6 - 2014-10-13: Add rejectUnauthorized option to bypass SSL certificate verification (PR from [GODDET](https://github.com/GODDET)).
 - 0.1.4/0.1.5 - 2014-05-25: Upload success on all 2XX codes (PR from [Shane Smith](http://github.com/shanesmith)) + Fix.
