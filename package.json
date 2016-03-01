@@ -5,7 +5,7 @@
   "homepage": "https://github.com/DiscoverGrunt/grunt-http-upload",
   "author": {
     "name": "Julien M",
-    "url": "http://discovergrunt.com"
+    "url": "http://julienma.com"
   },
   "contributors": [
     {
@@ -24,12 +24,7 @@
   "bugs": {
     "url": "https://github.com/DiscoverGrunt/grunt-http-upload/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/DiscoverGrunt/grunt-http-upload/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "Gruntfile.js",
   "engines": {
     "node": ">= 0.8.0"
@@ -41,7 +36,7 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.1"
+    "grunt": ">=0.4.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
@@ -57,6 +52,6 @@
     "curl"
   ],
   "dependencies": {
-    "restler": "~3.2.0"
+    "restler": "~3.4.0"
   }
 }
