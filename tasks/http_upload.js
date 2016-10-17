@@ -11,7 +11,7 @@
 module.exports = function(grunt) {
 
   var fs = require('fs');
-  var rest = require('restler');
+  var request = require('request');
 
   grunt.registerMultiTask('http_upload', 'Upload files through POST/PUT HTTP request', function() {
 
@@ -51,24 +51,25 @@ module.exports = function(grunt) {
           grunt.log.writeln('Uploading "' + filepath + '" as "' + field + '"');
           // build request data (because of dynamic key in data object)
           var reqData = options.data || {};
-          reqData[field] = rest.file(filepath, null, fileSize, null, null);
-          // HTTP request
-          rest.request(options.url, {
-            rejectUnauthorized: options.rejectUnauthorized,
+          reqData[field] = fs.createReadStream(filepath);
+          // Build the HTTP request
+          request({
+            url:options.url,
+            strictSSL: options.rejectUnauthorized,
             method: options.method,
             headers: options.headers,
-            multipart: true,
-            data: reqData
-          }).on('error',function(e){
-            grunt.fail.warn('Failed uploading (error code: ' + e.message + ')'); 
-          }).on('complete', function(data, response) {
+            formData: reqData
+          }, function optionalCallback(err, response, data) {
+            if (err) {
+              return grunt.fail.warn('Failed uploading (error code: ' + err + ')');
+            }
             if (response !== null && response.statusCode >= 200 && response.statusCode < 300) {
               grunt.log.ok('Upload successful of "' + filepath + '" as "' + field + '" - ' + options.method + ' @ ' + options.url);
               options.onComplete(data);
             } else if (response !== null) {
-                grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
+              grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: ' + response.statusCode + ') - ' + options.method + ' @ ' + options.url);
             } else {
-                grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: null) - ' + options.method + ' @ ' + options.url);                
+              grunt.fail.warn('Failed uploading "' + filepath + '" as "' + field + '" (status code: null) - ' + options.method + ' @ ' + options.url);
             }
             // callback once upload is done
             done(data);
