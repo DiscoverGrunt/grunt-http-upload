@@ -48,7 +48,7 @@
     "upload",
     "post",
     "api",
-    "restler",
+    "request",
     "curl"
   ],
   "dependencies": {
