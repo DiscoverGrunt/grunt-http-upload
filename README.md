@@ -138,7 +138,7 @@ You should fork this repo, and issue a Pull Request with your proposed changes.
 For now the upload is limited to 1 file per target. This could change if I find a scenario needing it.
 
 ## Release History
-- 0.3.1 - 2016-10-18: Use [Request](https://github.com/request/request) instead of [Restler](https://github.com/danwrong/restler), which throws some [deprecation warning](https://github.com/DiscoverGrunt/grunt-http-upload/issues/12) on Node >= 6.0.0, and its project page seems dead. Request seems a pretty good alternative anyway.
+- 0.3.2 - 2016-10-18: Use [Request](https://github.com/request/request) instead of [Restler](https://github.com/danwrong/restler), which throws some [deprecation warning](https://github.com/DiscoverGrunt/grunt-http-upload/issues/12) on Node >= 6.0.0, and its project page seems dead. Request seems a pretty good alternative anyway.
 - 0.2.0 - 2016-03-01: Straight bump to 0.2.0 with updated Restler (3.4.0) dependency and Grunt 1.0 compatibility. Yo.
 - 0.1.8 - 2015-01-12: Happy New Year! Now gives more information on unknown error (like when there's no connectivity), rather than `null` (PR from [Marcus](https://github.com/marcusds)).
 - 0.1.7 - 2014-12-30: Add onComplete as an optional callback function used to process server's response (PR from [Remigiusz Jackowski](https://github.com/remiq)).
