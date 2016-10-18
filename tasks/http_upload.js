@@ -58,6 +58,8 @@ module.exports = function(grunt) {
             strictSSL: options.rejectUnauthorized,
             method: options.method,
             headers: options.headers,
+            followRedirect: true,
+            followAllRedirects: true,
             formData: reqData
           }, function optionalCallback(err, response, data) {
             if (err) {
